@@ -1,13 +1,42 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
+import HelloWorld from './src/components/hello-world'
 
 export default class App extends React.Component {
+  /**
+   * constructor
+   * @param  {object} props React props.
+   * @return {void}
+   */
+  constructor(props) {
+    super(props)
+    this.state = { name: '' }
+  }
+  /**
+   * shouldComponentUpdate
+   * @param  {object} nextProps next props
+   * @param  {object} nextState next state
+   * @return {boolean}          should component update
+   */
+  shouldComponentUpdate(nextProp, nextState) {
+    return this.state.name !== nextState.name
+  }
+
+  /**
+   * render
+   * @return {ReactElement|null|false} render a React element.
+   */
   render() {
+    const { name } = this.state
+
     return (
       <View style={ styles.container }>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <HelloWorld name={ name } />
+        <Text>{'name: ' + name}</Text>
+        <TextInput
+          placeholder={ 'type here' }
+          onChangeText={ name => this.setState({ name }) }
+        />
       </View>
     )
   }

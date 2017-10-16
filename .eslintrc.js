@@ -145,7 +145,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
     'react/jsx-curly-spacing': ['error', { when: 'always' }],
     'react/jsx-equals-spacing': ['error', 'never'],
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx'] }],
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.js'] }],
     'react/jsx-first-prop-new-line': ['off'],
     'react/jsx-indent': ['error', 2],
     'react/jsx-indent-props': ['error', 2],
@@ -180,8 +180,8 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        paths: ['src', 'test'],
-        extensions: ['.js', '.jsx', '.scss'],
+        paths: ['src'],
+        extensions: ['.js', '.jsx'],
       },
     },
   },
